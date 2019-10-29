@@ -5,7 +5,7 @@ import subprocess
 #run this command first if you haven't yet: gcloud auth activate-service-account --key-file "My First Project-SomeNumbersHere.json"
 import csv
 import sys
-#how to run: python3 transcribe.py gs://YourBucketNameGoesHere/howareyou.wav 1
+#how to run: python3 transcribe.py gs://YourBucketNameGoesHere/howareyou.wav 0.9
 #must have a folder named YourBucketNameGoesHere
 
 filename = sys.argv[1]
