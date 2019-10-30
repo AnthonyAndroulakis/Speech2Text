@@ -5,7 +5,7 @@ import subprocess
 #run this command first if you haven't yet: gcloud auth activate-service-account --key-file "My First Project-SomeNumbersHere.json"
 import csv
 import sys
-#how to run: python3 transcribe.py gs://YourBucketNameGoesHere/howareyou.wav 0.9
+#how to run: python3 transcribe.py gs://YourBucketNameGoesHere/howareyou.wav 1
 #must have a folder named YourBucketNameGoesHere
 
 filename = sys.argv[1]
@@ -71,7 +71,10 @@ with open(textfile, 'w') as f:
         f.write("%s\n" % item.lstrip())
 
 # get number of words
-print("Number of words: "+str(len(combination[0]["alternatives"][0]["words"])))
+numOfWords=0
+for h in range(len(combination)):
+    numOfWords=numOfWords+len(combination[h]["alternatives"][0]["words"])
+print("Number of words: "+str(numOfWords))
 
 #csv file config
 csvfile = filename[:filename.find('.')]+"_words.csv"
